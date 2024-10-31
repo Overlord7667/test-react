@@ -1,0 +1,60 @@
+// Миксин для мобильных устройств
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// Миксин для планшетов
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+// Миксин для настольных устройств
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@media (max-width: 768px) {
+  .page__overlay-image {
+      display: none;
+  }
+}
+
+@mixin hide-on-mobile {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+@mixin remove-background-on-mobile {
+  @media (max-width: 768px) {
+    background: none;
+  }
+  @media (max-width: 768px) {
+    margin-top: 0; // Убираем отступ сверху
+  }
+}
+
+// Настройка фонового изображения на мобильных
+@mixin mobile-background {
+  @media (max-width: 768px) {
+    background-size: 340%; // Увеличиваем изображение, чтобы создать эффект приближения
+    background-position: center 76%; // Позиционируем изображение ближе к верхней части
+    height: 70vw; // Высота контейнера для мобильных устройств
+  }
+}
+
+// Настройка фонового изображения на десктопах
+@mixin desktop-background {
+  @media (min-width: 1025px) {
+    background-size: 100%; // Полный размер ширины
+    height: 50.5vw; // Высота для десктопов
+  }
+}
+
+

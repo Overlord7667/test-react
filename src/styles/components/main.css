@@ -1,0 +1,287 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "FuturaBookC";
+  src: url("../fonts/futurabookc-webfont.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FuturaDemic";
+  src: url("../fonts/futurademic-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.outer-container {
+  position: fixed; /* Позволяет позиционировать элементы внутри */
+  height: 100%; /* Высота общего контейнера */
+  width: 29vw; /* Ширина общего контейнера */
+  background-color: #f0f0f0; /* Серый фон */
+}
+
+.container {
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 29vw;
+  height: 14.6vw;
+  width: 100vw;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .overlay-image {
+  margin-left: 19%;
+  margin-top: 5.2%;
+  width: 7vw;
+  height: 11vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .button {
+  background-repeat: no-repeat;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0); /* Прозрачный фон */
+  border: 1px solid white; /* Белая рамка */
+  color: white; /* Цвет текста */
+  border-radius: 3px; /* Закругленные углы */
+  font-size: 0.27vw; /* Размер текста в зависимости от ширины экрана */
+  cursor: pointer; /* Курсор при наведении */
+  text-align: center; /* Центрируем текст */
+  left: 23vw; /* Смещение от правого края */
+  top: 1vw; /* Смещение вниз от верхней части контейнера */
+  height: 0.7vw; /* Сохранение пропорций по высоте */
+  font-family: "FuturaBookC", sans-serif; /* Применяем шрифт */
+  width: 3.3vw; /* Адаптивная ширина */
+  padding: 4px 12px; /* Отступы */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .icon-All {
+  position: absolute;
+  top: 0.16vw;
+  width: 0.7vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .icon-rect {
+  position: absolute;
+  left: 2.8vw;
+  top: 0.8vw;
+  width: 0.7vw;
+}
+.container .icon-rect:nth-of-type(2) {
+  left: 3.8vw;
+}
+.container .icon-rect:nth-of-type(3) {
+  left: 4.8vw;
+}
+.container .icon-rect:nth-of-type(4) {
+  left: 5.8vw;
+}
+.container .icon-rect:nth-of-type(5) {
+  left: 6.8vw;
+}
+.container .shop-guide {
+  position: absolute;
+  top: 6vw;
+  width: 11vw;
+  height: 0.9vw;
+  left: 3.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .only-popup {
+  position: absolute;
+  top: 5.2vw;
+  left: 9.6vw;
+  width: 8vw;
+  height: 0.63vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+}
+.container .popup-text {
+  position: absolute;
+  top: 21%;
+  left: 0.1vw;
+  font-family: "FuturaBookC", sans-serif;
+  font-size: 0.22vw;
+  color: white;
+  z-index: 11;
+  text-align: center;
+}
+.container .loading-container {
+  position: absolute;
+  top: 7.2vw;
+  left: 5.2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 7.4vw;
+}
+.container .loading-bar {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 5px;
+}
+.container .loading-text {
+  font-size: 5px;
+  color: white;
+  white-space: nowrap;
+  z-index: 1;
+}
+.container .button-container {
+  position: absolute; /* Позволяет позиционировать контейнер кнопок */
+  top: 7.7vw; /* Смещение вниз от полос */
+  left: 5.4vw; /* Смещение от левого края */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /* Для горизонтального расположения */
+  gap: 10px; /* Отступ между кнопками */
+  z-index: 10; /* Убедитесь, что кнопки отображаются над другими элементами */
+  border-radius: 8px; /* Закругленные углы */
+}
+.container .button1, .container .button2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /* Для центровки содержимого */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* Центрируем по горизонтали */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Центрируем по вертикали */
+  background-color: rgba(255, 255, 255, 0); /* Полупрозрачный фон */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Полупрозрачная рамка */
+  border-radius: 4px; /* Закругленные углы */
+  cursor: pointer; /* Курсор при наведении */
+  padding: 8px; /* Отступы внутри кнопки */
+  width: 3.3vw; /* Задайте ширину кнопок, чтобы они были одинаковыми */
+  height: 1vw; /* Задайте высоту кнопок, чтобы они были одинаковыми */
+}
+.container .button1 img, .container .button2 img {
+  width: 3vw; /* Ширина иконок */
+  height: 78px; /* Высота автоматически для сохранения пропорций */
+}
+
+.turquoise-button {
+  background-color: #1edbdb; /* Бирюзовый цвет */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 4px; /* Закругленные углы */
+  padding: 0.1vw 0.6vw; /* Отступы внутри кнопки */
+  font-family: "FuturaBookC", sans-serif; /* Применяем шрифт */
+  font-size: 0.3vw; /* Размер текста */
+  cursor: pointer; /* Курсор при наведении */
+  position: absolute; /* Позволяет позиционировать кнопку */
+  left: 12vw; /* Смещение от левого края контейнера */
+  top: 14.2vw;
+  z-index: 20; /* Убедитесь, что кнопка выше других элементов */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /* Используем flexbox для расположения элементов */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Центрируем по вертикали */
+  gap: 0.7vw;
+  width: 5vw; /* Ширина иконок */
+  height: 1vw; /* Высота автоматически для сохранения пропорций */
+  /* Тень для приподнятого эффекта */
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.1); /* Вторая тень для глубины */
+  /* Эффект увеличенной тени при наведении */
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+}
+.turquoise-button:hover {
+  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3), 0px 4px 6px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3), 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+.turquoise-button .arrow-icon {
+  width: 1vw; /* Ширина иконки */
+  height: 1vw; /* Сохранение пропорций */
+}
+
+.icon-border {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* Центрирование всего содержимого по горизонтали */
+  height: 10vw;
+  max-width: 50vw; /* Ограничение максимальной ширины */
+  gap: 1.5vw; /* Отступы между элементами */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; /* Перенос элементов на новую строку при необходимости */
+  margin-top: 2vw;
+}
+
+.icon-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Центрирование содержимого по горизонтали */
+  text-align: center; /* Центрирование текста */
+  width: 5vw; /* Ширина каждого блока */
+}
+
+.icon-item img {
+  width: 2vw;
+  height: 2vw;
+}
+
+.icon-title {
+  font-size: 0.45vw; /* Размер заголовка */
+  color: rgb(0, 0, 0);
+  margin-bottom: 0.01vw; /* Отступ под заголовком */
+}
+
+.icon-text {
+  font-size: 0.35vw; /* Размер текста */
+  color: rgb(0, 0, 0);
+  margin-top: 0.05vw;
+}
+
+.tab-container-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* Центрирование контейнера */
+}
+
+.tab-container {
+  position: relative;
+  height: 10vw;
+  width: 16vw; /* Ширина контейнера может быть адаптирована под количество кнопок */
+  left: 6.5vw;
+  color: #fff; /* Белый текст */
+}
+
+.custom-text {
+  font-family: "FuturaBookC", sans-serif; /* Используем ваш шрифт */
+  font-size: 0.3vw; /* Пример размера шрифта */
+  color: rgb(255, 255, 255); /* Пример цвета текста */
+  font-weight: 300; /* Установите тонкий вес */
+}

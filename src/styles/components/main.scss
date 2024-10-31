@@ -1,0 +1,761 @@
+@import '../mixins/_media';
+
+@font-face {
+  font-family: 'FuturaBookC';
+  src: url('../fonts/futurabookc-webfont.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaDemic';
+  src: url('../fonts/futurademic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page__outer-container{
+  position: relative; /* Измените с fixed на relative */
+  height: auto; /* Позволяет контейнеру растягиваться, если содержимое выходит за пределы экрана */
+  min-height: 100vh; /* Минимальная высота для заполнения экрана */
+  overflow-y: auto; /* Добавляет вертикальную прокрутку при необходимости */
+  overflow-x: hidden;
+}
+
+.page__container {
+  background-image: url('../images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 50.5vw; // Высота контейнера
+  width: 100%;
+  overflow: hidden; // Скрываем элементы, выходящие за пределы контейнера
+  display: flex;
+  @include mobile-background; // Применяем настройки для мобильных
+  @include desktop-background; // Применяем настройки для десктопов
+
+  .page__overlay-image {
+    margin-left: 63%; /* Смещение от правого края */
+    margin-top: 14.6%; /* Смещение вниз от верхней части контейнера */
+    width: 26vw; /* Относительная ширина, адаптирующаяся к окну */
+    height: 42vw; /* Сохранение пропорций изображения */
+    display: flex;
+    position: relative; /* Позиционирование контейнера для корректного наложения кнопки */
+    @include hide-on-mobile;
+}
+
+
+.page__partner-button {
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0); /* Прозрачный фон */
+    border: 0.1vw solid white; /* Белая рамка */
+    color: white; /* Цвет текста */
+    border-radius: 0.6vw; /* Закругленные углы */
+    font-size: 0.9vw; /* Размер текста */
+    cursor: pointer; /* Курсор при наведении */
+    margin-left: -11vw; /* Смещение влево (отрицательное значение) */
+    margin-top: 2vw; /* Смещение вниз от верхней части контейнера */
+    height: 2.3vw; /* Высота кнопки */
+    font-family: 'FuturaDemic', sans-serif; /* Применяем шрифт */
+    width: 11vw; /* Адаптивная ширина */
+    padding: 0.1vw 0.2vw; /* Отступы */
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    z-index: 10; /* Устанавливаем кнопку выше изображения */
+}
+
+  .icon-All {
+    position: absolute; // Позволяет позиционировать Facebook иконку относительно родителя
+    top: 0.00vw; // Смещение от верхней части контейнера
+    width: 2.5vw; // Примерная ширина, измените по необходимости
+    display: flex;
+    @include hide-on-mobile;
+  }
+
+  .page__icon-rect{
+    position: absolute;
+    left: 10vw; // Смещение от правого края, подкорректируйте значение по мере необходимости
+    top: 1.8vw; // Смещение вниз от верхней части контейнера
+    width: 2.5vw; // Ширина иконки, измените по мере необходимости
+    display: flex;
+    @include hide-on-mobile;
+  }
+
+  .page__icon-rect:nth-of-type(2) {
+    left: 13vw; // Вторая иконка
+  }
+
+  .page__icon-rect:nth-of-type(3) {
+    left: 16vw; // Третья иконка
+  }
+
+  .page__icon-rect:nth-of-type(4) {
+    left: 19vw; // Четвертая иконка
+  }
+
+  .page__icon-rect:nth-of-type(5) {
+    left: 22vw; // Четвертая иконка
+  }
+  
+  .page__shop-guide {
+    position: absolute; // Позволяет позиционировать изображение
+    top: 20.5vw; // Укажите нужное смещение вниз
+    width: 24vw; // Ширина будет зависеть от пропорций
+    height: 5.9vw; // Сохранение пропорций
+    left: 20vw;
+    display: flex;
+    @include mobile {
+      top: 30vw;       // Смещаем ниже на мобильных
+      left: 20vw;      // Смещаем правее на мобильных
+      width: 60vw;     // Увеличиваем ширину
+      height: auto;    // Подгоняем высоту автоматически
+    }
+  }
+
+  .page__promo {
+    position: absolute; // Позволяет позиционировать изображение относительно родителя
+    top: 19.4vw; // Смещение вниз от верхней части контейнера, подкорректируйте по необходимости
+    left: 34.4vw; // Смещение от левого края контейнера
+    width: 2vw; // Ширина будет зависеть от пропорций
+    height: 2.1vw; // Укажите высоту изображения, если это необходимо
+    display: flex;
+    z-index: 10; // Чтобы изображение было над другими элементами
+    @include mobile {
+      top: 23vw;       // Смещаем ниже на мобильных
+      left: 56vw;      // Смещаем правее на мобильных
+      width: 2vw;
+      height: 5.5vw; 
+    }
+  }
+
+  .page__promo-text {
+    position: absolute; // Позволяет позиционировать текст относительно родителя
+    top:0.4vw; // Смещение вниз от верхней части контейнера, подкорректируйте по необходимости
+    left: 0.2vw; // Смещение от левого края контейнера
+    font-family: 'FuturaBookC', sans-serif; // Применяем шрифт
+    font-size: 0.7vw; // Размер текста, измените по необходимости
+    color: white; // Цвет текста, измените по необходимости
+    z-index: 11; // Чтобы текст был над другими элементами
+    text-align: center; // Центрируем текст
+    width: 9vw;
+    @media (max-width: 768px) {
+      font-size: 2vw;           // Увеличиваем размер текста
+      width: 25vw;              // Делаем ширину 100%, чтобы текст центрировался
+      right: 13vw;                  // Обнуляем отступ слева
+      top: 1vw;                 // Можно настроить отступ сверху для лучшего размещения
+    }
+  }
+
+  .page__loading {
+    position: absolute; // Позволяет позиционировать контейнер
+    top: calc(26vw); // Смещение вниз от shop-guide
+    left: 20vw; // Положение относительно левого края
+    display: flex; // Для горизонтального расположения
+    align-items: center; // Центрируем текст по вертикали
+    width: 24vw; // Задайте ширину контейнера, если нужно
+    gap: 1vw;
+    @include mobile {
+      top: calc(40vw); // Смещаем ниже на мобильных
+      left: 20vw;      // Смещаем правее на мобильных
+      width: 60vw;     // Увеличиваем ширину
+      gap: 3vw;
+    }
+  }
+  
+  .page__loading-bar {
+    flex: 1; // Позволяет полосам занимать равное пространство
+    height: 0.1vw; // Высота полосы
+    background-color: rgba(255, 255, 255, 0.068); // Цвет полосы
+    margin: 0 0.1vw; // Отступы между полосами
+  }
+  
+  .page__loading-text {
+    font-size: 1vw; // Размер текста
+    color: white; // Цвет текста
+    white-space: nowrap; // Запрет на перенос текста
+    z-index: 1; // Убедитесь, что текст выше полос
+    @media (max-width: 768px) {
+      font-size: 3.6vw; // Увеличенный размер текста для мобильных
+    }
+  }
+
+  .page__app-buttons {
+    position: absolute; /* Позволяет позиционировать контейнер кнопок */
+    top: calc(27.6vw); /* Смещение вниз от полос */
+    left: 20vw; /* Смещение от левого края */
+    display: flex; /* Для горизонтального расположения */
+    gap: 1vw; /* Отступ между кнопками */
+    z-index: 10; /* Убедитесь, что кнопки отображаются над другими элементами */
+    @include mobile {
+      top: calc(46vw); // Смещаем ниже на мобильных
+      left: 20vw;      // Смещаем правее на мобильных
+      gap: 2.8vw;      // Увеличиваем отступы между кнопками
+    }
+  }
+  
+  .page__app-button--android, .page__app-button--ios {
+    display: flex; /* Для центровки содержимого */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    background-color: rgba(255, 255, 255, 0); /* Полупрозрачный фон */
+    border: 0.1vw solid rgba(255, 255, 255, 0.2); /* Полупрозрачная рамка */
+    border-radius: 0.6vw; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    padding: 0.1vw; /* Отступы внутри кнопки */
+    width: 11.5vw; /* Задайте ширину кнопок, чтобы они были одинаковыми */
+    height: 3.5vw; /* Задайте высоту кнопок, чтобы они были одинаковыми */
+    @include mobile {
+      width: 28.6vw;      // Увеличиваем размер кнопок на мобильных
+      height:10vw;
+    }
+  }
+  
+  .page__app-button--android img, .page__app-button--ios img {
+    width: 17vw; /* Ширина иконок */
+    height: 3vw; /* Высота автоматически для сохранения пропорций */
+    @include mobile {
+      width: 30vw;      // Увеличиваем размер кнопок на мобильных
+      height: 8vw;
+    }
+  }
+}
+
+.page__scroll-button--turquoise {
+  background-color: #1edbdb; /* Бирюзовый цвет */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 30px; /* Закругленные углы */
+  padding: 0.1vw 0.6vw; /* Отступы внутри кнопки */
+  font-family: 'FuturaBookC', sans-serif; /* Применяем шрифт */
+  font-size: 0.86vw; /* Размер текста */
+  cursor: pointer; /* Курсор при наведении */
+  margin: 0 auto; /* Центрируем кнопку по горизонтали */
+  display: flex; /* Используем flexbox для расположения элементов */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  gap: 2.5vw; /* Расстояние между элементами внутри кнопки */
+  width: 15.6vw; /* Ширина кнопки */
+  height: 2.5vw; /* Высота кнопки */
+  transform: translateY(-1.5vw);
+  @include hide-on-mobile;
+  
+
+  /* Тень для приподнятого эффекта */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0.5, 0.5), /* Основная мягкая тень */
+              0px 12px 14px rgba(0, 0, 0, 0.5); /* Вторая тень для глубины */
+
+  /* Эффект увеличенной тени при наведении */
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.page__scroll-button--turquoise:hover {
+  box-shadow: 0px 26px 24px rgba(0, 0, 0, 0.4), 0px 14px 16px rgba(0, 0, 0, 0.28);
+}
+
+.page__scroll-arrow {
+  width: 1.1vw; /* Ширина иконки */
+  height: 2vw; /* Высота иконки */
+}
+
+.page__icon-border {
+  display: flex;
+  justify-content: center; /* Центрирование всего содержимого по горизонтали */
+  height: 10vw;
+  max-width: 100%; /* Ограничение максимальной ширины */
+  gap: 12vw; /* Отступы между элементами */
+  flex-wrap: wrap; /* Перенос элементов на новую строку при необходимости */
+  margin-top: 1.8vw;
+}
+
+.page__icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирование содержимого по горизонтали */
+  text-align: center; /* Центрирование текста */
+  width: 10vw; /* Ширина каждого блока */
+}
+
+.page__icon-item img {
+  width: 6vw;
+  height: 5.8vw;
+}
+
+.page__icon-title {
+  font-size: 1vw; /* Размер заголовка */
+  color: rgb(0, 0, 0);
+  margin-bottom: 0.5vw; /* Отступ под заголовком */
+}
+
+.page__icon-text {
+  font-size: 0.8vw; /* Размер текста */
+  color: rgb(0, 0, 0);
+  margin-top: 0.05vw;
+  width: 12vw;
+}
+
+@media (max-width: 767px) {
+  .page__icon-item {
+    flex: 0 0 48%;
+    max-width: 58%;
+    margin-bottom: 0.5vw;
+  }
+
+  .page__icon-border {
+    justify-content: center;
+    gap: 1vw;
+  }
+
+  .page__icon-item img {
+    width: 16vw; // Увеличение ширины изображения для мобильных
+    height: 19.8vw; // Увеличение высоты изображения
+  }
+
+  .page__icon-title {
+    font-size: 2.5vw; // Увеличение шрифта заголовка
+    margin-bottom: 0.8vw;
+  }
+
+  .page__icon-text {
+    font-size: 2.2vw; // Увеличение шрифта текста
+    width: 34vw; // Увеличение ширины текста
+  }
+}
+
+.page__tab-wrapper{
+  display: flex;
+  margin-top: 8vw;
+  justify-content: center;
+  @include hide-on-mobile;
+}
+
+.page__tab-container {
+  position: relative;
+  height: 22vw;
+  width: 15vw; /* Ширина контейнера может быть адаптирована под количество кнопок */
+  right: 8vw;
+  color: #fff; /* Белый текст */
+  top: 4vw;
+  @include hide-on-mobile;
+}
+
+.page__custom-text {
+  font-family: 'FuturaBookC', sans-serif; /* Используем ваш шрифт */
+  font-size: 1vw; /* Пример размера шрифта */
+  color: rgb(255, 255, 255); /* Пример цвета текста */
+  @include hide-on-mobile;
+}
+
+.page__phone-image {
+  width: 20vw; /* Настроить нужный размер */
+  height: 29.5vw; /* Сохраняем пропорции изображения */
+  position: absolute; /* Позиционирование изображения относительно контейнера */
+  bottom: 0; /* Вы можете изменить это значение в зависимости от того, куда нужно разместить изображение */
+  right: 15.5vw;
+  top: -7.4vw;
+  @include hide-on-mobile;
+}
+
+.page__favorite-button {
+  background-color: transparent; /* Прозрачный фон */
+  border: none; /* Убираем границу */
+  color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый текст */
+  font-family: 'FuturaDemic', sans-serif; /* Ваш шрифт */
+  font-size: 1.8vw; /* Размер шрифта */
+  cursor: pointer; /* Курсор при наведении */
+  position: absolute; /* Позиционирование в контейнере */
+  padding: 0.5vw 1vw; /* Отступы внутри кнопки */
+  transition: color 0.3s ease; /* Плавный переход цвета текста */
+  right: 34.5vw;
+  top: 0vw;
+  @include hide-on-mobile;
+}
+
+.page__favorite-button:hover {
+  color: rgba(255, 255, 255, 1); /* Белый текст при наведении */
+}
+
+.page__gray-section {
+  background-color: #e4e4e4; /* Светло-серый цвет фона */
+  width: 100%; /* Ширина контейнера */
+  height: 24vw; /* Высота контейнера */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'FuturaBookC', sans-serif; /* Шрифт текста */
+  color: #333; /* Цвет текста */
+  font-size: 1vw; /* Размер текста */
+  margin-top: 16vw;
+  position: relative; /* Для абсолютного позиционирования элементов внутри */
+  overflow: visible; /* Позволяет элементам выходить за пределы контейнера */
+}
+
+.page__section-description {
+  font-size: 1.34vw; /* Размер текста */
+  color: rgb(0, 0, 0); /* Цвет текста */
+}
+
+.page__text-content {
+  display: flex;
+  flex-direction: column; /* Размещение по вертикали */
+  align-items: flex-start; /* Выравнивание текста слева */
+  margin-top: 0vw;
+}
+
+.page__container-title {
+  font-size: 1.6vw; /* Размер заголовка */
+  color: rgb(0, 0, 0); /* Цвет заголовка */
+  margin-bottom: 1.1vw; /* Отступ между заголовком и текстом */
+}
+
+@media (max-width: 767px) {
+  .page__gray-section {
+    margin-top: 90vw;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page__container-title {
+    font-size: 4.6vw; /* Увеличиваем размер заголовка для мобильных устройств */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0vw;
+  }
+
+  .page__text-content {
+    font-size: 3.6vw; /* Увеличиваем размер текста для мобильных устройств */
+    align-items: center; /* Выравнивание текста по центру */
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .page__section-description {
+    font-size: 5vw; /* Размер текста */
+    text-align: center;
+  }
+}
+
+.page__additional-image--first {
+  width: 22vw; /* Ширина изображения */
+  bottom: 0; /* Настройка положения */
+  left: 18vw;
+  bottom: 7vw;
+  position: relative;
+  @include hide-on-mobile;
+}
+
+.page__additional-image--second {
+  position: relative;
+  width: 18vw; /* Ширина изображения */
+  bottom: 4.5vw; /* Настройка положения */
+  left: -16.5vw;
+  @include hide-on-mobile;
+}
+
+.page__partners-title {
+  font-size: 1.8vw; /* Размер заголовка */
+  color: #fd7474; /* Цвет заголовка */
+  margin-bottom: 0.4vw; /* Отступ между заголовком и текстом */
+  margin-top: 3vw;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .page__partners-title {
+    margin-top: 18vw;
+    font-size: 3.8vw;
+  }
+}
+
+.page__parent-container {
+  background-color: #ff5050;
+  text-align: center;
+  margin-top: 1.4vw;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.page__logos-containers {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.page__logo-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 4vw;
+  scroll-behavior: smooth;
+  align-items: center;
+  width: max-content;
+  padding-left: 4vw; /* Добавляем отступ слева */
+  padding-right: 4vw; /* Добавляем отступ справа */
+}
+
+.page__scroll-button--left,
+.page__scroll-button--right {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%; /* Центрирование по вертикали в контейнере */
+  transform: translateY(-50%);
+  width: 1vw;
+  height: 3vw;
+  @include hide-on-mobile;
+}
+
+.page__scroll-button--left {
+  left: 0vw; /* Отступ слева */
+}
+
+.page__scroll-button--right {
+  right: 0vw; /* Отступ справа */
+}
+
+/* Общий стиль для всех логотипов */
+.logo {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+/* Индивидуальные размеры для каждого логотипа */
+.logo-prada { width: 9vw; height: 1.5vw; }
+.logo-nike { width: 5vw; height: 3vw; }
+.logo-cym { width: 5vw; height: 5vw; }
+.logo-adidas { width: 5vw; height: 3.5vw; }
+.logo-gum { width: 3.8vw; height: 3.2vw; }
+.logo-zara { width: 5vw; height: 1.5vw; }
+.logo-pazolini { width: 7vw; height: 1.1vw; }
+
+@media (max-width: 768px) {
+  .page__parent-container { height: 23vw; overflow-x: auto; margin-top: 4vw;}
+  
+  .page__logos-containers {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .page__logo-list {
+    padding-left: 6vw; /* Увеличиваем отступы для мобильных */
+    padding-right: 6vw;
+    overflow-x: scroll;
+  }
+  
+  /* Для Webkit-браузеров на мобильных устройствах (Chrome, Safari) */
+  .page__logo-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .logo-prada { width: 25vw; height: 4vw; }
+  .logo-nike { width: 24vw; height: 6vw; }
+  .logo-cym { width: 14vw; height: 14vw; }
+  .logo-adidas { width: 17vw; height: 10vw; }
+  .logo-gum { width: 18vw; height: 8vw; }
+  .logo-zara { width: 14vw; height: 4vw; }
+  .logo-pazolini { width: 18vw; height: 4vw; }
+
+  /* Скрываем кнопки прокрутки на мобильных */
+  .page__scroll-button--left,
+  .page__scroll-button--right {
+    display: none;
+  }
+}
+
+.page__partnership-description {
+  font-family: 'FuturaBookC';
+  font-size: 1.2vw; /* Настраиваем размер шрифта */
+  margin-top: 2vw;
+  color: #333; /* Цвет текста */
+  text-align: center; /* Центрируем текст */
+}
+
+@media (max-width: 767px) {
+  .page__partnership-description {
+    font-size: 4vw;
+    margin-top: 6vw;
+  }
+}
+
+.page__cta-button {
+  font-family: 'FuturaDemic';
+  font-size: 1vw;
+  background-color: #1edbdb; /* Цвет фона кнопки */
+  color: white; /* Цвет текста кнопки */
+  border: none;
+  margin: 2vw auto; /* Центрируем кнопку по горизонтали */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 26px;
+  width: 16vw;
+}
+
+
+@media (max-width: 767px) {
+  .page__cta-button  {
+    font-size: 3.5vw;
+    height: 9vw;
+    width: 52vw;
+    border-radius: 4px;
+  }
+}
+
+.page__cta-button:hover {
+  background-color: #17b3b3; /* Цвет кнопки при наведении */
+}
+
+.page__footer{
+  background-image: url('../images/bg.jpg'); /* Фоновое изображение */
+  background-position: center -29vw; /* Позиция фона */
+  background-repeat: no-repeat; /* Отключаем повторение */
+  background-size: cover; /* Масштабируем изображение, чтобы оно заполнило контейнер */
+  height: 7vw; /* Высота футера около 1 см */
+  margin-top: 0.8vw; /* Отступ сверху, чтобы футер располагался под кнопкой */
+  display: flex; /* Flexbox для горизонтального выравнивания */
+  justify-content: space-between; /* Распределение элементов по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  padding: 0 1vw; /* Отступы слева и справа */
+}
+
+.page_footer-left {
+  display: flex; /* Flexbox для вертикального выравнивания текста и ссылки */
+  flex-direction: column; /* Вертикальное расположение текста */
+  align-items: flex-start; /* Выровнять по левому краю */
+  margin-left: 8.5vw;
+}
+
+.page_footer-links {
+  display: flex; /* Flexbox для горизонтального выравнивания ссылок */
+  align-items: center; /* Центрируем по вертикали */
+  margin-top: 0.6vw; /* Отступ сверху между текстом и ссылками */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+.page_footer-text {
+  font-family: 'FuturaBookC'; /* Шрифт текста */
+  font-size: 0.8vw; /* Размер шрифта */
+  color: white; /* Белый цвет текста */
+  margin: 0; /* Убираем все отступы */
+  text-align: left; /* Выровнять текст по левому краю */
+}
+
+.page_footer-link {
+  font-family: 'FuturaBookC'; /* Шрифт ссылки */
+  font-size: 0.65vw; /* Размер шрифта */
+  color: rgba(255, 255, 255, 0.226); /* Полупрозрачный цвет */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+.page__footer-link--secondary {
+  font-family: 'FuturaBookC'; /* Шрифт ссылки */
+  font-size: 0.65vw; /* Размер шрифта */
+  color: rgba(255, 255, 255, 0.226); /* Полупрозрачный цвет */
+  text-decoration: none; /* Убираем подчеркивание */
+  margin-left: 3vw; /* Отступ слева между ссылками */
+}
+
+.page__contact-button {
+  background-color: transparent; /* Прозрачный фон */
+  border: 0.1vw solid white; /* Белая рамка */
+  border-radius: 12px; /* Скругление углов */
+  display: flex; /* Flexbox для центрирования */
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center; /* Горизонтальное центрирование */
+  padding: 0.01vw 0.2vw; /* Отступы вокруг кнопки */
+  cursor: pointer; /* Курсор при наведении */
+  transition: background-color 0.3s ease; /* Плавный переход */
+  margin-right: 8.5vw;
+  height: 2.4vw;
+  z-index: 10;
+}
+
+.page__contact-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Эффект при наведении */
+}
+
+.page__contact-icon {
+  width: 2vw; /* Ширина иконки */
+  height: 1vw; /* Высота иконки */
+  margin-right: 5px; /* Отступ между иконкой и текстом */
+  margin-left: 4;
+}
+
+.page__contact-text {
+  font-family: 'FuturaBookC'; /* Шрифт текста */
+  font-size: 0.8vw; /* Размер шрифта */
+  color: white; /* Цвет текста */
+  margin-right: 0.5vw;
+}
+
+@media (max-width: 767px) {
+  .page__footer {
+    background-position: center -53vw; /* Позиция фона для мобильных устройств */
+    background-size: 220%;
+    height: auto;
+    min-height: 35vw;
+    padding-top: 5vw;
+    margin-top: 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Выравнивание элементов по верхнему краю */
+  }
+
+  .page__contact-button {
+    height: 9vw;
+    padding: 1vw 4vw;
+    border-radius: 2px;
+    width: 54vw; /* Ширина кнопки */
+    font-size: 1.8vw;
+    margin-bottom: 2vw; /* Отступ снизу для кнопки */
+    margin-top: 6vw; /* Отступ сверху для кнопки */
+    margin-left: 10%;
+  }
+
+  .page_footer-text {
+    font-size: 2.8vw;
+    text-align: center; /* Центрируем текст */
+    width: 90%; /* Ширина 100% для текстового блока */
+    margin-top: 4vw;
+  }
+
+  .page_footer-link,
+  .page__footer-link--secondary {
+    font-size: 2.4vw;
+    text-align: center; /* Центрируем текст и ссылки */
+    color: rgba(255, 255, 255, 0.425); /* Полупрозрачный цвет */
+    text-decoration: underline; /* Убираем подчеркивание */
+  }
+
+  .page_footer-links {
+    margin-top: 4vw; /* Отступ сверху для ссылок под текстом */
+    display: flex; /* Убедитесь, что ссылки выстраиваются по горизонтали */
+    align-items: center; /* Центрируем ссылки */
+    margin-left: 10%;
+  }
+
+  .page__contact-text {
+    font-size: 3.5vw;
+  }
+
+  .page__contact-icon {
+    width: 4vw;
+    height: auto;
+    margin-right: 2vw;
+  }
+
+  .page_footer-left {
+    order: 2; /* Устанавливаем порядок для блока с текстом и ссылками */
+    text-align: center; /* Центрируем текст для блока с текстом и ссылками */
+    width: 100%; /* Ширина 100% для блока с текстом */
+  }
+}
